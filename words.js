@@ -24,7 +24,16 @@ var wordsInput = document.getElementById("words-input")
 wordsInput.addEventListener("change", handleNewWordsEntered)
 
 function getHighlightColor() {
-  return null
+  var everyNthSelect = document.getElementById("every-nth-select")
+  var everyNth = everyNthSelect.value
+  console.log("== everyNth:", everyNth)
+  console.log("  -- typeof(everyNth):", typeof(everyNth))
+  if ((counter + 1) % everyNth) {
+    return null
+  }
+  var selectedRadio = document.querySelector("input[name='highlight-color']:checked")
+  console.log("== selectedRadio:", selectedRadio)
+  return selectedRadio.value
 }
 
 function handleAddWordButtonClick(event) {
